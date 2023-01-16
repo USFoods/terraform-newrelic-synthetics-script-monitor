@@ -6,7 +6,7 @@ output "synthetics_script_monitor" {
   }
 }
 
-output "alert_condition" {
+output "synthetics_alert_condition" {
   value = {
     id          = try(newrelic_synthetics_alert_condition.this[0].id, "")
     policy_id   = try(newrelic_synthetics_alert_condition.this[0].policy_id, 0)
