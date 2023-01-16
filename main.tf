@@ -30,7 +30,7 @@ resource "newrelic_synthetics_script_monitor" "this" {
   enable_screenshot_on_failure_and_script = var.enable_screenshot
 
   tag {
-    key    = "ORIGIN"
+    key    = "Origin"
     values = ["Terraform"]
   }
 
