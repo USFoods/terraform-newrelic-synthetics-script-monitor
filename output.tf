@@ -7,10 +7,10 @@ output "synthetics_script_monitor" {
 }
 
 output "synthetics_alert_condition" {
-  value = {
-    id          = try(newrelic_synthetics_alert_condition.this[0].id, "")
-    policy_id   = try(newrelic_synthetics_alert_condition.this[0].policy_id, 0)
-    monitor_id  = try(newrelic_synthetics_alert_condition.this[0].monitor_id, "")
-    runbook_url = try(newrelic_synthetics_alert_condition.this[0].runbook_url, "")
-  }
+  value = try({
+    id          = newrelic_synthetics_alert_condition.this[0].id
+    policy_id   = newrelic_synthetics_alert_condition.this[0].policy_id
+    monitor_id  = newrelic_synthetics_alert_condition.this[0].monitor_id
+    runbook_url = newrelic_synthetics_alert_condition.this[0].runbook_url
+  }, null)
 }
