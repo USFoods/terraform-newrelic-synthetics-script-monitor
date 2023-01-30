@@ -68,6 +68,7 @@ variable "runtime_version" {
 }
 
 variable "tags" {
+  default     = {}
   description = "The tags that will be associated with the monitor"
   type        = map(list(string))
 }
