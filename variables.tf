@@ -3,18 +3,6 @@ variable "account_id" {
   type        = string
 }
 
-variable "private_locations" {
-  default     = []
-  description = "The names of the synthetics private locations"
-  type        = list(string)
-}
-
-variable "public_locations" {
-  default     = null
-  description = "value"
-  type        = list(string)
-}
-
 variable "enabled" {
   default     = false
   description = "The run state of the monitor"
@@ -28,20 +16,26 @@ variable "name" {
 
 variable "type" {
   default     = "SCRIPT_API"
-  description = "value"
+  description = "The plaintext representing the monitor script"
   type        = string
+}
+
+variable "private_locations" {
+  default     = null
+  description = "The private locations the monitor will run from"
+  type        = list(string)
+}
+
+variable "public_locations" {
+  default     = null
+  description = "The public locations the monitor will run from"
+  type        = list(string)
 }
 
 variable "period" {
   default     = "EVERY_15_MINUTES"
   description = "The interval at which this monitor should run"
   type        = string
-}
-
-variable "enable_screenshot" {
-  default     = false
-  description = "Capture a screenshot during job execution"
-  type        = bool
 }
 
 variable "script" {
@@ -73,11 +67,21 @@ variable "tags" {
   type        = map(list(string))
 }
 
+variable "enable_screenshot" {
+  default     = false
+  description = "Capture a screenshot during job execution"
+  type        = bool
+}
+
 variable "condition" {
-  default = null
+  default     = null
+  description = "Creates a NRQL Alert Condition for the monitor"
   type = object({
     policy_id   = string
+    enabled     = optional(bool, true)
     name        = optional(string, "")
+    description = optional(string, "")
     runbook_url = optional(string, "")
+    tags        = optional(map(list(string)), {})
   })
 }
