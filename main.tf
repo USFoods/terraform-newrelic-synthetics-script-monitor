@@ -56,7 +56,7 @@ module "nrql_alert_condition" {
   description = coalesce(var.condition.description, "Monitor failed on ${newrelic_synthetics_script_monitor.this.name}")
   runbook_url = var.condition.runbook_url
 
-  query = "SELECT count(*) FROM SyntheticChecks WHERE monitorId = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED'"
+  query = "SELECT count(*) FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED'"
 
   tags = merge(var.condition.tags, var.tags)
 
