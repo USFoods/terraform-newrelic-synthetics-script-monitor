@@ -64,6 +64,6 @@ module "nrql_alert_condition" {
     operator              = "ABOVE"
     threshold             = 0
     threshold_duration    = 60
-    threshold_occurrences = "ALL"
+    threshold_occurrences = "AT_LEAST_ONCE"
   }
 }
