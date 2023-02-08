@@ -25,10 +25,12 @@ resource "newrelic_synthetics_private_location" "main" {
   name        = "TF Example"
 }
 
-// In a production scenario a private location would be created
-// well in advance of any synthetic monitors being run on it, so
-// this is just a work around to ensure the location is available
-// when the module attempts to fetch it.
+/* 
+ * In a production scenario a private location would be created
+ * well in advance of any synthetic monitors being run on it, so
+ * this is just a work around to ensure the location is available
+ * when the module attempts to fetch it.
+ */
 resource "time_sleep" "wait_10_seconds" {
   depends_on = [newrelic_synthetics_private_location.main]
 

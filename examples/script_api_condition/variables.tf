@@ -5,6 +5,6 @@ variable "account_id" {
 
 variable "enabled" {
   default     = false
-  description = "value"
+  description = "Whether to enable the synthetics script monitor"
   type        = bool
 }

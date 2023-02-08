@@ -37,8 +37,13 @@ func TestScriptApiConditionConfiguration(t *testing.T) {
 		output[k] = fmt.Sprintf("%v", v)
 	}
 
+	assert.Equal(t, "Script API Condition Policy", output["policy_name"])
+	assert.Equal(t, output["policy_id"], output["condition_policy_id"])
+
 	assert.Equal(t, "Script API Condition Synthetic Monitor", output["module_name"])
 	assert.Equal(t, fmt.Sprint([]string{"US_WEST_1"}), output["module_public_locations"])
+
+	assert.Equal(t, "Script API Condition Synthetic Monitor", output["condition_name"])
 
 	expected_tags := map[string]string{
 		"Origin":   "Terraform",
@@ -47,4 +52,5 @@ func TestScriptApiConditionConfiguration(t *testing.T) {
 	}
 
 	assert.Equal(t, fmt.Sprint(expected_tags), output["module_tags"])
+	assert.Equal(t, fmt.Sprint(expected_tags), output["condition_tags"])
 }
