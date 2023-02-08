@@ -61,9 +61,9 @@ module "nrql_alert_condition" {
   tags = merge(var.condition.tags, var.tags)
 
   critical = {
-    operator            = "ABOVE"
-    threshold           = 0
-    threshold_duration  = 60
-    threshold_occurence = "AT_LEAST_ONCE"
+    operator              = "ABOVE"
+    threshold             = 0
+    threshold_duration    = 60
+    threshold_occurrences = "ALL"
   }
 }
