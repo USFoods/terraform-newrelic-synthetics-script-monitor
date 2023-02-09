@@ -53,10 +53,10 @@ module "nrql_alert_condition" {
   policy_id   = var.condition.policy_id
   enabled     = var.condition.enabled && var.enabled
   name        = coalesce(var.condition.name, var.name)
-  description = coalesce(var.condition.description, "Monitor failed on ${newrelic_synthetics_script_monitor.this.name}")
+  description = coalesce(var.condition.description, "NRQL Alert Condition for Monitor: ${newrelic_synthetics_script_monitor.this.name}")
   runbook_url = var.condition.runbook_url
 
-  query = "SELECT count(*) FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED'"
+  query = "SELECT count(*) AS 'Script Failures' FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED'"
 
   tags = merge(var.condition.tags, var.tags)
 

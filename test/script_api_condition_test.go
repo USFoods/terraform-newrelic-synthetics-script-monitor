@@ -44,6 +44,7 @@ func TestScriptApiConditionConfiguration(t *testing.T) {
 	assert.Equal(t, fmt.Sprint([]string{"US_WEST_1"}), output["module_public_locations"])
 
 	assert.Equal(t, "Script API Condition Synthetic Monitor", output["condition_name"])
+	assert.Equal(t, "NRQL Alert Condition for Monitor: Script API Condition Synthetic Monitor", output["condition_description"])
 
 	expected_tags := map[string]string{
 		"Origin":   "Terraform",
