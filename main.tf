@@ -1,3 +1,16 @@
+locals {
+  threshold_durations = {
+    EVERY_MINUTE     = 60
+    EVERY_5_MINUTES  = 300
+    EVERY_15_MINUTES = 900
+    EVERY_30_MINUTES = 1800
+    EVERY_HOUR       = 3600
+    EVERY_6_HOURS    = 21600
+    EVERY_12_HOURS   = 43200
+    EVERY_DAY        = 86400
+  }
+}
+
 data "newrelic_synthetics_private_location" "private_location" {
   for_each = toset(coalesce(var.private_locations, []))
 
@@ -49,21 +62,22 @@ module "nrql_alert_condition" {
 
   count = var.condition == null ? 0 : 1
 
-  account_id  = var.account_id
-  policy_id   = var.condition.policy_id
-  enabled     = var.condition.enabled && var.enabled
-  name        = coalesce(var.condition.name, var.name)
-  description = coalesce(var.condition.description, "NRQL Alert Condition for Monitor: ${newrelic_synthetics_script_monitor.this.name}")
-  runbook_url = var.condition.runbook_url
+  account_id        = var.account_id
+  policy_id         = var.condition.policy_id
+  enabled           = var.condition.enabled && var.enabled
+  name              = coalesce(var.condition.name, var.name)
+  description       = coalesce(var.condition.description, "NRQL Alert Condition for Monitor: ${newrelic_synthetics_script_monitor.this.name}")
+  runbook_url       = var.condition.runbook_url
+  aggregation_delay = 180
 
-  query = "SELECT count(*) AS 'Script Failures' FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED'"
+  query = "SELECT count(*) FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED'"
 
   tags = merge(var.condition.tags, var.tags)
 
   critical = {
     operator              = "ABOVE"
     threshold             = 0
-    threshold_duration    = 60
+    threshold_duration    = local.threshold_durations[var.period]
     threshold_occurrences = "AT_LEAST_ONCE"
   }
 }

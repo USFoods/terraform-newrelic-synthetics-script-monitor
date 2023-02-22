@@ -104,6 +104,10 @@ Then perform the following commands on the root folder:
 
 | Name | Description |
 |------|-------------|
+| <a name="output_condition_critical_operator"></a> [condition\_critical\_operator](#output\_condition\_critical\_operator) | The operator used when evaluating the critical threshold |
+| <a name="output_condition_critical_threshold"></a> [condition\_critical\_threshold](#output\_condition\_critical\_threshold) | The value which will trigger a critical incident |
+| <a name="output_condition_critical_threshold_duration"></a> [condition\_critical\_threshold\_duration](#output\_condition\_critical\_threshold\_duration) | The duration, in seconds, that the threshold must violate in order to create an incident |
+| <a name="output_condition_critical_threshold_occurrences"></a> [condition\_critical\_threshold\_occurrences](#output\_condition\_critical\_threshold\_occurrences) | The criteria for how many data points must be in violation for the specified threshold duration |
 | <a name="output_condition_description"></a> [condition\_description](#output\_condition\_description) | The description of the NRQL alert condition |
 | <a name="output_condition_enabled"></a> [condition\_enabled](#output\_condition\_enabled) | Whether the alert condition is enabled |
 | <a name="output_condition_name"></a> [condition\_name](#output\_condition\_name) | The title of the condition |
