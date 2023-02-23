@@ -70,7 +70,7 @@ module "nrql_alert_condition" {
   runbook_url       = var.condition.runbook_url
   aggregation_delay = 180
 
-  query = "SELECT count(*) FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED' FACET monitorName"
+  query = "SELECT count(*) FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED'"
 
   tags = merge(var.condition.tags, var.tags)
 
