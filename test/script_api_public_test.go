@@ -38,6 +38,7 @@ func TestScriptApiPublicConfiguration(t *testing.T) {
 	}
 
 	assert.Equal(t, "Script API Public Synthetic Monitor", output["module_name"])
+	assert.Equal(t, "SCRIPT_API", output["module_type"])
 	assert.Equal(t, fmt.Sprint([]string{"US_WEST_1"}), output["module_public_locations"])
 
 	expected_tags := map[string]string{

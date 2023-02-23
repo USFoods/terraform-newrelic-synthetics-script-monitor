@@ -9,12 +9,12 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestScriptApiConditionConfiguration(t *testing.T) {
+func TestScriptBrowserPublicConfiguration(t *testing.T) {
 	// Construct the terraform options with default retryable errors to handle the most common
 	// retryable errors in terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		// Set the path to the Terraform code that will be tested.
-		TerraformDir: "../examples/script_api_condition",
+		TerraformDir: "../examples/script_browser_public",
 		Vars: map[string]interface{}{
 			"account_id": os.Getenv("NEW_RELIC_ACCOUNT_ID"),
 			"enabled":    false,
@@ -37,16 +37,9 @@ func TestScriptApiConditionConfiguration(t *testing.T) {
 		output[k] = fmt.Sprintf("%v", v)
 	}
 
-	assert.Equal(t, "Script API Condition Policy", output["policy_name"])
-	assert.Equal(t, output["policy_id"], output["condition_policy_id"])
-
-	assert.Equal(t, "Script API Condition Synthetic Monitor", output["module_name"])
-	assert.Equal(t, "SCRIPT_API", output["module_type"])
+	assert.Equal(t, "Script Browser Public Synthetic Monitor", output["module_name"])
+	assert.Equal(t, "SCRIPT_BROWSER", output["module_type"])
 	assert.Equal(t, fmt.Sprint([]string{"US_WEST_1"}), output["module_public_locations"])
-
-	assert.Equal(t, "Script API Condition Synthetic Monitor", output["condition_name"])
-	assert.Equal(t, "NRQL Alert Condition for Monitor: Script API Condition Synthetic Monitor", output["condition_description"])
-	assert.Equal(t, "900", output["condition_critical_threshold_duration"])
 
 	expected_tags := map[string]string{
 		"Origin":   "Terraform",
@@ -55,5 +48,4 @@ func TestScriptApiConditionConfiguration(t *testing.T) {
 	}
 
 	assert.Equal(t, fmt.Sprint(expected_tags), output["module_tags"])
-	assert.Equal(t, fmt.Sprint(expected_tags), output["condition_tags"])
 }

@@ -38,6 +38,7 @@ func TestScriptApiPrivateConfiguration(t *testing.T) {
 	}
 
 	assert.Equal(t, "Script API Private Synthetic Monitor", output["module_name"])
+	assert.Equal(t, "SCRIPT_API", output["module_type"])
 	assert.Equal(t, fmt.Sprint([]string{"TF Example"}), output["module_private_locations"])
 
 	expected_tags := map[string]string{
