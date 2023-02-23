@@ -58,7 +58,7 @@ resource "newrelic_synthetics_script_monitor" "this" {
 
 module "nrql_alert_condition" {
   source  = "usfoods/nrql-alert-condition/newrelic"
-  version = "1.0.1"
+  version = "1.0.2"
 
   count = var.condition == null ? 0 : 1
 
@@ -68,9 +68,9 @@ module "nrql_alert_condition" {
   name              = coalesce(var.condition.name, var.name)
   description       = coalesce(var.condition.description, "NRQL Alert Condition for Monitor: ${newrelic_synthetics_script_monitor.this.name}")
   runbook_url       = var.condition.runbook_url
-  aggregation_delay = 180
+  aggregation_delay = 300
 
-  query = "SELECT count(*) FROM SyntheticCheck WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' AND result = 'FAILED'"
+  query = "SELECT count(*) FROM SyntheticCheck WHERE monitorName = '${newrelic_synthetics_script_monitor.this.name}' AND result = 'FAILED'"
 
   tags = merge(var.condition.tags, var.tags)
 
