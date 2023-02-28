@@ -9,7 +9,7 @@ If you find incompatibilities using Terraform `>=1.0`, please open an issue.
 
 ## Usage
 
-There are multiple examples included in the [examples](https://github.com/usfoods/terraform-newrelic-nrql-alert-condition/tree/master/examples) folder but simple usage is as follows:
+There are multiple examples included in the [examples](https://github.com/usfoods/terraform-newrelic-synthetics-script-monitor/tree/master/examples) folder but simple usage is as follows:
 
 ```hcl
 provider "newrelic" {
