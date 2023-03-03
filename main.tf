@@ -1,6 +1,6 @@
 locals {
   threshold_durations = {
-    EVERY_MINUTE     = 60
+    EVERY_MINUTE     = 300
     EVERY_5_MINUTES  = 300
     EVERY_15_MINUTES = 900
     EVERY_30_MINUTES = 1800
@@ -62,15 +62,17 @@ module "nrql_alert_condition" {
 
   count = var.condition == null ? 0 : 1
 
-  account_id        = var.account_id
-  policy_id         = var.condition.policy_id
-  enabled           = var.condition.enabled && var.enabled
-  name              = coalesce(var.condition.name, var.name)
-  description       = coalesce(var.condition.description, "NRQL Alert Condition for Monitor: ${newrelic_synthetics_script_monitor.this.name}")
-  runbook_url       = var.condition.runbook_url
-  aggregation_delay = 300
+  account_id         = var.account_id
+  policy_id          = var.condition.policy_id
+  enabled            = var.condition.enabled && var.enabled
+  name               = coalesce(var.condition.name, var.name)
+  description        = coalesce(var.condition.description, "NRQL Alert Condition for Monitor: ${newrelic_synthetics_script_monitor.this.name}")
+  runbook_url        = var.condition.runbook_url
+  aggregation_delay  = var.condition.aggregation_delay
+  aggregation_window = var.condition.aggregation_window
+  slide_by           = var.condition.slide_by
 
-  query = "SELECT count(*) FROM SyntheticCheck WHERE monitorName = '${newrelic_synthetics_script_monitor.this.name}' AND result = 'FAILED'"
+  query = "FROM SyntheticCheck SELECT latest(if(result = 'FAILED', 1, 0)) WHERE entityGuid = '${newrelic_synthetics_script_monitor.this.id}' FACET entityGuid, monitorName, location"
 
   tags = merge(var.condition.tags, var.tags)
 
