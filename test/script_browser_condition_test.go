@@ -46,7 +46,6 @@ func TestScriptBrowserConditionConfiguration(t *testing.T) {
 
 	assert.Equal(t, "Script Browser Condition Synthetic Monitor", output["condition_name"])
 	assert.Equal(t, "NRQL Alert Condition for Monitor: Script Browser Condition Synthetic Monitor", output["condition_description"])
-	assert.Equal(t, "900", output["condition_critical_threshold_duration"])
 
 	expected_tags := map[string]string{
 		"Origin":   "Terraform",

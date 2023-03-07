@@ -86,7 +86,7 @@ Then perform the following commands on the root folder:
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_account_id"></a> [account\_id](#input\_account\_id) | The id of the account where where the synthetic monitor lives | `string` | n/a | yes |
-| <a name="input_condition"></a> [condition](#input\_condition) | Creates a NRQL Alert Condition for the monitor | <pre>object({<br>    policy_id          = string<br>    enabled            = optional(bool, true)<br>    name               = optional(string, "")<br>    description        = optional(string, "")<br>    runbook_url        = optional(string, "")<br>    aggregation_delay  = optional(number, 300)<br>    aggregation_window = optional(number, 300)<br>    slide_by           = optional(number, 60)<br>    tags               = optional(map(list(string)), {})<br>  })</pre> | `null` | no |
+| <a name="input_condition"></a> [condition](#input\_condition) | Creates a NRQL Alert Condition for the monitor | <pre>object({<br>    policy_id   = string<br>    enabled     = optional(bool, true)<br>    name        = optional(string, "")<br>    description = optional(string, "")<br>    runbook_url = optional(string, "")<br>    tags        = optional(map(list(string)), {})<br>  })</pre> | `null` | no |
 | <a name="input_enable_screenshot"></a> [enable\_screenshot](#input\_enable\_screenshot) | Capture a screenshot during job execution | `bool` | `false` | no |
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | The run state of the monitor | `bool` | `false` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name for the monitor | `string` | n/a | yes |
@@ -104,10 +104,6 @@ Then perform the following commands on the root folder:
 
 | Name | Description |
 |------|-------------|
-| <a name="output_condition_critical_operator"></a> [condition\_critical\_operator](#output\_condition\_critical\_operator) | The operator used when evaluating the critical threshold |
-| <a name="output_condition_critical_threshold"></a> [condition\_critical\_threshold](#output\_condition\_critical\_threshold) | The value which will trigger a critical incident |
-| <a name="output_condition_critical_threshold_duration"></a> [condition\_critical\_threshold\_duration](#output\_condition\_critical\_threshold\_duration) | The duration, in seconds, that the threshold must violate in order to create an incident |
-| <a name="output_condition_critical_threshold_occurrences"></a> [condition\_critical\_threshold\_occurrences](#output\_condition\_critical\_threshold\_occurrences) | The criteria for how many data points must be in violation for the specified threshold duration |
 | <a name="output_condition_description"></a> [condition\_description](#output\_condition\_description) | The description of the NRQL alert condition |
 | <a name="output_condition_enabled"></a> [condition\_enabled](#output\_condition\_enabled) | Whether the alert condition is enabled |
 | <a name="output_condition_name"></a> [condition\_name](#output\_condition\_name) | The title of the condition |

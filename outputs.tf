@@ -87,23 +87,3 @@ output "condition_tags" {
   description = "The tags associated with the alert condition"
   value       = try(module.nrql_alert_condition[0].tags, "")
 }
-
-output "condition_critical_operator" {
-  description = "The operator used when evaluating the critical threshold"
-  value       = try(module.nrql_alert_condition[0].critical_operator, "")
-}
-
-output "condition_critical_threshold" {
-  description = "The value which will trigger a critical incident"
-  value       = try(module.nrql_alert_condition[0].critical_threshold, "")
-}
-
-output "condition_critical_threshold_duration" {
-  description = "The duration, in seconds, that the threshold must violate in order to create an incident"
-  value       = try(module.nrql_alert_condition[0].critical_threshold_duration, "")
-}
-
-output "condition_critical_threshold_occurrences" {
-  description = "The criteria for how many data points must be in violation for the specified threshold duration"
-  value       = try(module.nrql_alert_condition[0].critical_threshold_occurrences, "")
-}
