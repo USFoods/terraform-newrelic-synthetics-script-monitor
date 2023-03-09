@@ -28,6 +28,10 @@ resource "newrelic_synthetics_script_monitor" "this" {
   runtime_type_version = var.runtime_version
 
   enable_screenshot_on_failure_and_script = var.enable_screenshot
+}
+
+resource "newrelic_entity_tags" "this" {
+  guid = newrelic_synthetics_script_monitor.this.guid
 
   tag {
     key    = "Origin"

@@ -55,7 +55,7 @@ output "enable_screenshot" {
 
 output "tags" {
   description = "The tags associated with the synthetics script monitor"
-  value       = { for t in newrelic_synthetics_script_monitor.this.tag : t.key => join(",", toset(t.values)) }
+  value       = { for t in newrelic_entity_tags.this.tag : t.key => join(",", toset(t.values)) }
 }
 
 output "condition_policy_id" {
