@@ -3,9 +3,14 @@ output "id" {
   value       = newrelic_synthetics_script_monitor.this.id
 }
 
-output "status" {
+output "account_id" {
+  description = "The id of the account where where the synthetic monitor lives"
+  value       = tostring(newrelic_synthetics_script_monitor.this.account_id)
+}
+
+output "enabled" {
   description = "The run state of the monitor"
-  value       = newrelic_synthetics_script_monitor.this.status
+  value       = newrelic_synthetics_script_monitor.this.status == "ENABLED" ? true : false
 }
 
 output "name" {
@@ -18,14 +23,14 @@ output "type" {
   value       = newrelic_synthetics_script_monitor.this.type
 }
 
-output "private_locations" {
-  description = "The private locations the monitor is running from"
-  value       = var.private_locations
-}
-
 output "public_locations" {
   description = "The public locations the monitor is running from"
   value       = newrelic_synthetics_script_monitor.this.locations_public
+}
+
+output "private_locations" {
+  description = "The private locations the monitor is running from"
+  value       = var.private_locations
 }
 
 output "period" {
@@ -33,9 +38,9 @@ output "period" {
   value       = newrelic_synthetics_script_monitor.this.period
 }
 
-output "script_language" {
-  description = "The programing language that executes the script"
-  value       = newrelic_synthetics_script_monitor.this.script_language
+output "script" {
+  description = "The script that the monitor runs"
+  value       = newrelic_synthetics_script_monitor.this.script
 }
 
 output "runtime_type" {
@@ -48,14 +53,19 @@ output "runtime_version" {
   value       = newrelic_synthetics_script_monitor.this.runtime_type_version
 }
 
-output "enable_screenshot" {
-  description = "Capture a screenshot during job execution"
-  value       = newrelic_synthetics_script_monitor.this.enable_screenshot_on_failure_and_script
+output "script_language" {
+  description = "The programing language that executes the script"
+  value       = newrelic_synthetics_script_monitor.this.script_language
 }
 
 output "tags" {
   description = "The tags associated with the synthetics script monitor"
   value       = { for t in newrelic_entity_tags.this.tag : t.key => join(",", toset(t.values)) }
+}
+
+output "enable_screenshot" {
+  description = "Capture a screenshot during job execution"
+  value       = newrelic_synthetics_script_monitor.this.enable_screenshot_on_failure_and_script
 }
 
 output "condition_policy_id" {

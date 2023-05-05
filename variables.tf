@@ -20,15 +20,15 @@ variable "type" {
   type        = string
 }
 
-variable "private_locations" {
-  default     = null
-  description = "The private locations the monitor will run from"
-  type        = list(string)
-}
-
 variable "public_locations" {
   default     = null
   description = "The public locations the monitor will run from"
+  type        = list(string)
+}
+
+variable "private_locations" {
+  default     = null
+  description = "The private locations the monitor will run from"
   type        = list(string)
 }
 
@@ -43,12 +43,6 @@ variable "script" {
   type        = string
 }
 
-variable "script_language" {
-  default     = ""
-  description = "The programing language that should execute the script"
-  type        = string
-}
-
 variable "runtime_type" {
   default     = ""
   description = "The runtime that the monitor will use to run jobs"
@@ -58,6 +52,12 @@ variable "runtime_type" {
 variable "runtime_version" {
   default     = ""
   description = "The specific version of the runtime type selected"
+  type        = string
+}
+
+variable "script_language" {
+  default     = ""
+  description = "The programing language that should execute the script"
   type        = string
 }
 

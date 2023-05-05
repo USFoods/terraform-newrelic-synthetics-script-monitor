@@ -3,7 +3,7 @@ terraform {
   required_providers {
     newrelic = {
       source  = "newrelic/newrelic"
-      version = "~>3.13.0"
+      version = "~>3.14"
     }
   }
 }
@@ -20,7 +20,7 @@ module "main" {
   name       = "Script Browser Public Synthetic Monitor"
   type       = "SCRIPT_BROWSER"
 
-  script = "console.log('Example script is working...')"
+  script = "$browser.get('https://one.newrelic.com')"
 
   script_language = "JAVASCRIPT"
   runtime_type    = "CHROME_BROWSER"
