@@ -68,6 +68,11 @@ output "enable_screenshot" {
   value       = newrelic_synthetics_script_monitor.this.enable_screenshot_on_failure_and_script
 }
 
+output "condition_id" {
+  description = "The ID of the NRQL alert condition"
+  value       = try(module.nrql_alert_condition[0].id, "")
+}
+
 output "condition_policy_id" {
   description = "The ID of the policy where this condition is used"
   value       = try(module.nrql_alert_condition[0].policy_id, "")
