@@ -54,6 +54,7 @@ Note that this example may create resources which can cost money. Run `terraform
 | <a name="output_account_id"></a> [account\_id](#output\_account\_id) | The id of the account where where the synthetic monitor lives |
 | <a name="output_condition_description"></a> [condition\_description](#output\_condition\_description) | The description of the NRQL alert condition |
 | <a name="output_condition_enabled"></a> [condition\_enabled](#output\_condition\_enabled) | Whether the alert condition is enabled |
+| <a name="output_condition_id"></a> [condition\_id](#output\_condition\_id) | The ID of the NRQL alert condition |
 | <a name="output_condition_name"></a> [condition\_name](#output\_condition\_name) | The title of the condition |
 | <a name="output_condition_policy_id"></a> [condition\_policy\_id](#output\_condition\_policy\_id) | The ID of the policy where this condition is used |
 | <a name="output_condition_runbook_url"></a> [condition\_runbook\_url](#output\_condition\_runbook\_url) | Runbook URL to display in notifications |

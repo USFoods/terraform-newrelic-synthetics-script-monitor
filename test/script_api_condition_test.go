@@ -40,13 +40,16 @@ func TestScriptApiConditionConfiguration(t *testing.T) {
 	outputPublicLocations := terraform.Output(t, terraformOptions, "public_locations")
 	outputTags := terraform.Output(t, terraformOptions, "tags")
 
-	// Get output for condition name, enabled, description, runbook url, and tags
+	// Get output for condition id, name, enabled, description, runbook url, and tags
+	outputConditionId := terraform.Output(t, terraformOptions, "condition_id")
 	outputConditionName := terraform.Output(t, terraformOptions, "condition_name")
 	outputConditionEnabled := terraform.Output(t, terraformOptions, "condition_enabled")
 	outputConditionDescription := terraform.Output(t, terraformOptions, "condition_description")
 	outputConditionRunbookUrl := terraform.Output(t, terraformOptions, "condition_runbook_url")
 	outputConditionTags := terraform.Output(t, terraformOptions, "condition_tags")
 
+	// Assert condition id is not empty
+	assert.NotEmpty(t, outputConditionId)
 	// Assert policy name is Script API Condition Policy
 	assert.Equal(t, "Script API Condition Policy", outputPolicyName)
 	// Assert condition policy id matches policy id

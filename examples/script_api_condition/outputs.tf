@@ -83,6 +83,11 @@ output "enable_screenshot" {
   value       = module.main.enable_screenshot
 }
 
+output "condition_id" {
+  description = "The ID of the NRQL alert condition"
+  value       = module.main.condition_id
+}
+
 
 output "condition_policy_id" {
   description = "The ID of the policy where this condition is used"
