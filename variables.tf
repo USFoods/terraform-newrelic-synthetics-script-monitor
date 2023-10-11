@@ -32,6 +32,12 @@ variable "private_locations" {
   type        = list(string)
 }
 
+variable "private_location_ids" {
+  default     = null
+  description = "The private location ids the monitor will run from"
+  type        = list(string)
+}
+
 variable "period" {
   default     = "EVERY_15_MINUTES"
   description = "The interval at which this monitor should run"

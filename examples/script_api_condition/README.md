@@ -67,6 +67,7 @@ Note that this example may create resources which can cost money. Run `terraform
 | <a name="output_policy_id"></a> [policy\_id](#output\_policy\_id) | The ID of the policy where this condition is used |
 | <a name="output_policy_incident_preference"></a> [policy\_incident\_preference](#output\_policy\_incident\_preference) | The rollup strategy for the policy |
 | <a name="output_policy_name"></a> [policy\_name](#output\_policy\_name) | The name of the policy |
+| <a name="output_private_location_ids"></a> [private\_location\_ids](#output\_private\_location\_ids) | The private locations the monitor is running from |
 | <a name="output_private_locations"></a> [private\_locations](#output\_private\_locations) | The private locations the monitor is running from |
 | <a name="output_public_locations"></a> [public\_locations](#output\_public\_locations) | The public locations the monitor is running from |
 | <a name="output_runtime_type"></a> [runtime\_type](#output\_runtime\_type) | The runtime that the monitor uses to run jobs |

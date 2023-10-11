@@ -33,6 +33,11 @@ output "private_locations" {
   value       = var.private_locations
 }
 
+output "private_location_ids" {
+  description = "The private locations the monitor is running from"
+  value       = local.private_location_ids
+}
+
 output "period" {
   description = "The interval at which this monitor is run"
   value       = newrelic_synthetics_script_monitor.this.period

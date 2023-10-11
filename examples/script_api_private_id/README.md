@@ -1,6 +1,6 @@
-# Script Browser Private
+# Script API Private Id
 
-Configuration in this directory creates a new synthetic private location along with a new synthetic script monitor of type SCRIPT_BROWSER which is configured to run in the newly created private location.
+Configuration in this directory creates a new synthetic private location along with a new synthetic script monitor of type SCRIPT_API which is configured to run in the newly created private location.
 
 ## Usage
 
@@ -60,6 +60,7 @@ Note that this example may create resources which can cost money. Run `terraform
 | <a name="output_id"></a> [id](#output\_id) | The ID of the Synthetics script monitor |
 | <a name="output_name"></a> [name](#output\_name) | The name for the monitor |
 | <a name="output_period"></a> [period](#output\_period) | The interval at which this monitor is run |
+| <a name="output_private_location_ids"></a> [private\_location\_ids](#output\_private\_location\_ids) | The private locations the monitor is running from |
 | <a name="output_private_locations"></a> [private\_locations](#output\_private\_locations) | The private locations the monitor is running from |
 | <a name="output_public_locations"></a> [public\_locations](#output\_public\_locations) | The public locations the monitor is running from |
 | <a name="output_runtime_type"></a> [runtime\_type](#output\_runtime\_type) | The runtime that the monitor uses to run jobs |

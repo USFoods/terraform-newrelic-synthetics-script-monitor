@@ -92,6 +92,7 @@ Then perform the following commands on the root folder:
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | The run state of the monitor | `bool` | `false` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name for the monitor | `string` | n/a | yes |
 | <a name="input_period"></a> [period](#input\_period) | The interval at which this monitor should run | `string` | `"EVERY_15_MINUTES"` | no |
+| <a name="input_private_location_ids"></a> [private\_location\_ids](#input\_private\_location\_ids) | The private location ids the monitor will run from | `list(string)` | `null` | no |
 | <a name="input_private_locations"></a> [private\_locations](#input\_private\_locations) | The private locations the monitor will run from | `list(string)` | `null` | no |
 | <a name="input_public_locations"></a> [public\_locations](#input\_public\_locations) | The public locations the monitor will run from | `list(string)` | `null` | no |
 | <a name="input_runtime_type"></a> [runtime\_type](#input\_runtime\_type) | The runtime that the monitor will use to run jobs | `string` | `""` | no |
@@ -118,6 +119,7 @@ Then perform the following commands on the root folder:
 | <a name="output_id"></a> [id](#output\_id) | The ID of the Synthetics script monitor |
 | <a name="output_name"></a> [name](#output\_name) | The name for the monitor |
 | <a name="output_period"></a> [period](#output\_period) | The interval at which this monitor is run |
+| <a name="output_private_location_ids"></a> [private\_location\_ids](#output\_private\_location\_ids) | The private locations the monitor is running from |
 | <a name="output_private_locations"></a> [private\_locations](#output\_private\_locations) | The private locations the monitor is running from |
 | <a name="output_public_locations"></a> [public\_locations](#output\_public\_locations) | The public locations the monitor is running from |
 | <a name="output_runtime_type"></a> [runtime\_type](#output\_runtime\_type) | The runtime that the monitor uses to run jobs |
