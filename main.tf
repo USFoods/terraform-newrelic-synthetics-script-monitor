@@ -8,7 +8,7 @@ data "newrelic_synthetics_private_location" "private_location" {
 locals {
   private_location_ids = concat(
     [for loc in data.newrelic_synthetics_private_location.private_location : loc.id],
-    var.private_location_ids
+    coalesce(var.private_location_ids, [])
   )
 }
 
