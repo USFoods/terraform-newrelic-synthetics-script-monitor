@@ -1,4 +1,4 @@
-# Script API Private
+# Script API Private Id
 
 Configuration in this directory creates a new synthetic private location along with a new synthetic script monitor of type SCRIPT_API which is configured to run in the newly created private location.
 

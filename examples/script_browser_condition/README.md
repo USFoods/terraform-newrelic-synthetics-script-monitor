@@ -1,4 +1,4 @@
-# Script API Condition
+# Script Browser Condition
 
 Configuration in this directory creates a new synthetic script monitor of type SCRIPT_API which runs in a public location.  It also creates a new NRQL alert condition which monitors the synthetic along with an alert policy in which the condition is deployed.
 

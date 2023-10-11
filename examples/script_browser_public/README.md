@@ -1,4 +1,4 @@
-# Script API Public
+# Script Browser Public
 
 Configuration in this directory creates a new synthetic script monitor of type SCRIPT_BROWSER which runs in a public location.
 
