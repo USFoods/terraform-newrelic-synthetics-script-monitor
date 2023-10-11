@@ -31,7 +31,7 @@ init: exec
 
 fmt:
 	@echo "=== $(PROJECT_NAME) === [ format           ]: formatting Terraform configuration..."
-	@cd $(DIR) && terraform fmt --recursive
+	@terraform fmt --recursive
 
 lint: init
 	@echo "=== $(PROJECT_NAME) === [ lint-init        ]: initializing tflint configuration..."

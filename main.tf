@@ -5,6 +5,13 @@ data "newrelic_synthetics_private_location" "private_location" {
   name       = each.value
 }
 
+locals {
+  private_location_ids = concat(
+    [for loc in data.newrelic_synthetics_private_location.private_location : loc.id],
+    var.private_location_ids
+  )
+}
+
 resource "newrelic_synthetics_script_monitor" "this" {
   account_id = var.account_id
   status     = var.enabled ? "ENABLED" : "DISABLED"
@@ -12,9 +19,9 @@ resource "newrelic_synthetics_script_monitor" "this" {
   type       = var.type
 
   dynamic "location_private" {
-    for_each = data.newrelic_synthetics_private_location.private_location
+    for_each = local.private_location_ids
     content {
-      guid = location_private.value.id
+      guid = location_private.value
     }
   }
 

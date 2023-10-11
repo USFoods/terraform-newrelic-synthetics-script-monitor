@@ -1,18 +1,3 @@
-output "policy_id" {
-  description = "The ID of the policy where this condition is used"
-  value       = newrelic_alert_policy.main.id
-}
-
-output "policy_name" {
-  description = "The name of the policy"
-  value       = newrelic_alert_policy.main.name
-}
-
-output "policy_incident_preference" {
-  description = "The rollup strategy for the policy"
-  value       = newrelic_alert_policy.main.incident_preference
-}
-
 output "id" {
   description = "The ID of the Synthetics script monitor"
   value       = module.main.id
@@ -86,40 +71,4 @@ output "tags" {
 output "enable_screenshot" {
   description = "Capture a screenshot during job execution"
   value       = module.main.enable_screenshot
-}
-
-output "condition_id" {
-  description = "The ID of the NRQL alert condition"
-  value       = module.main.condition_id
-}
-
-
-output "condition_policy_id" {
-  description = "The ID of the policy where this condition is used"
-  value       = module.main.condition_policy_id
-}
-
-output "condition_enabled" {
-  description = "Whether the alert condition is enabled"
-  value       = module.main.condition_enabled
-}
-
-output "condition_name" {
-  description = "The title of the condition"
-  value       = module.main.condition_name
-}
-
-output "condition_description" {
-  description = "The description of the NRQL alert condition"
-  value       = module.main.condition_description
-}
-
-output "condition_runbook_url" {
-  description = "Runbook URL to display in notifications"
-  value       = module.main.condition_runbook_url
-}
-
-output "condition_tags" {
-  description = "The tags associated with the alert condition"
-  value       = module.main.condition_tags
 }
