@@ -30,12 +30,7 @@ output "public_locations" {
 
 output "private_locations" {
   description = "The private locations the monitor is running from"
-  value       = var.private_locations
-}
-
-output "private_location_ids" {
-  description = "The private locations the monitor is running from"
-  value       = local.private_location_ids
+  value       = toset(local.private_location_ids)
 }
 
 output "period" {
@@ -101,6 +96,11 @@ output "condition_description" {
 output "condition_runbook_url" {
   description = "Runbook URL to display in notifications"
   value       = try(module.nrql_alert_condition[0].runbook_url, "")
+}
+
+output "condition_nrql_query" {
+  description = "The NRQL query executed for the condition"
+  value       = try(module.nrql_alert_condition[0].nrql_query, "")
 }
 
 output "condition_tags" {
