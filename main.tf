@@ -31,8 +31,8 @@ resource "newrelic_synthetics_script_monitor" "this" {
   script = var.script
 
   script_language      = var.script_language
-  runtime_type         = var.runtime_type
-  runtime_type_version = var.runtime_version
+  runtime_type         = coalesce(var.runtime_type, var.type == "SCRIPT_BROWSER" ? "CHROME_BROWSER" : "NODE_API")
+  runtime_type_version = coalesce(var.runtime_version, var.type == "SCRIPT_BROWSER" ? "100" : "16.10")
 
   enable_screenshot_on_failure_and_script = var.enable_screenshot
 }

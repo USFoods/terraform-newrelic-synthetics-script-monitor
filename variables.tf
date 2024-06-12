@@ -50,13 +50,13 @@ variable "script" {
 }
 
 variable "runtime_type" {
-  default     = "NODE_API"
+  default     = ""
   description = "The runtime that the monitor will use to run jobs"
   type        = string
 }
 
 variable "runtime_version" {
-  default     = "16.10"
+  default     = ""
   description = "The specific version of the runtime type selected"
   type        = string
 }
