@@ -95,8 +95,8 @@ Then perform the following commands on the root folder:
 | <a name="input_private_location_ids"></a> [private\_location\_ids](#input\_private\_location\_ids) | The private location ids the monitor will run from | `list(string)` | `null` | no |
 | <a name="input_private_locations"></a> [private\_locations](#input\_private\_locations) | The private locations the monitor will run from | `list(string)` | `null` | no |
 | <a name="input_public_locations"></a> [public\_locations](#input\_public\_locations) | The public locations the monitor will run from | `list(string)` | `null` | no |
-| <a name="input_runtime_type"></a> [runtime\_type](#input\_runtime\_type) | The runtime that the monitor will use to run jobs | `string` | `"NODE_API"` | no |
-| <a name="input_runtime_version"></a> [runtime\_version](#input\_runtime\_version) | The specific version of the runtime type selected | `string` | `"16.10"` | no |
+| <a name="input_runtime_type"></a> [runtime\_type](#input\_runtime\_type) | The runtime that the monitor will use to run jobs | `string` | `""` | no |
+| <a name="input_runtime_version"></a> [runtime\_version](#input\_runtime\_version) | The specific version of the runtime type selected | `string` | `""` | no |
 | <a name="input_script"></a> [script](#input\_script) | The script that the monitor runs | `string` | n/a | yes |
 | <a name="input_script_language"></a> [script\_language](#input\_script\_language) | The programing language that should execute the script | `string` | `"JAVASCRIPT"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags that will be associated with the monitor | `map(list(string))` | `{}` | no |
